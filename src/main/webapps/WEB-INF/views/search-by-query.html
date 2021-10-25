@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buscador de chíos</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css" integrity="sha512-wghhOJkjQX0Lh3NSWvNKeZ0ZpNn+SPVXX1Qyc9OCaogADktxrBiBdKGDoqVUOyhStvMBmJQ8ZdMHiR3wuEq8+w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/jquery.tablesorter.pager.min.css" integrity="sha512-TWYBryfpFn3IugX13ZCIYHNK3/2sZk3dyXMKp3chZL+0wRuwFr1hDqZR9Qd5SONzn+Lja10hercP2Xjuzz5O3g==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.widgets.min.js" integrity="sha512-dj/9K5GRIEZu+Igm9tC16XPOTz0RdPk9FGxfZxShWf65JJNU2TjbElGjuOo3EhwAJRPhJxwEJ5b+/Ouo+VqZdQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="/chiador/js/sort-table.js"></script>
+    <script src="/chiador/js/view-on-map.js"></script>
+    <link rel="stylesheet" href="/chiador/css/pagestyle.css">
+
+</head>
+<body>
+    <form action="/chiador/chios/buscar"  method="get">
+
+        <nav class="navbar navbar-nav-gradient">
+            <h1>Buscador de chíos</h1>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item main">
+                        <input class="form-control" type="text" id="query-input" name="query" placeholder="Consulta" th:value="${queryStr}"/>
+                    </li>
+                    <li class="nav-item secondary">
+                        <input class="form-control" type="text" id="user-input" name="user" placeholder="Nome de usuario" th:value="${userStr}"/>
+                    </li>
+                    <li class="nav-item btn">
+                        <button class="searcher-btn btn" type="submit">Procurar</button>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item main">
+                        <button class="searcher-btn btn" id="view-on-map">Ver chíos no mapa</button>
+                    </li>
+                    <li class="nav-item main">
+                        <button class="searcher-btn btn" id="show-tweet-map">Ver tódolos chíos no mapa</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </form>
+    <div th:if="${tweets != null}" class="tweet-list">
+        <h2 th:if="${#lists.isEmpty(tweets)}">Non se recuperou ningún chío</h2>
+        <table th:if="${not #lists.isEmpty(tweets)}" id="tweetTable" class="table general table-hover tablesorter">
+            <thead>
+                <tr>
+                    <th class="tweet-content" scope="col" style="width: 50%">Contido</th>
+                    <th scope="col" style="width: 25%">Data de creación</th>
+                    <th class="tweet-info" scope="col" style="width: 25%">Máis información</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="tweet : ${tweets}">
+                    <tr class="tweet-row">
+                        <td scope="row"  th:text="${tweet.content}">...</td>
+                        <td th:text="${tweet.createdAt}">...</td>
+                        <td>
+                            <table class="table info">
+                                <tbody>
+                                <tr>
+                                    <th scope="row">Usuario</th>
+                                    <td th:text="${tweet.user.name}">...</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Localización</th>
+                                    <td th:text="${tweet.place.fullName}">...</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(function() {
+            $("#tweetTable").tablesorter();
+        });
+    </script>
+
+
+
+</body>
+</html>

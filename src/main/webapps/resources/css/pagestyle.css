@@ -1,0 +1,217 @@
+h1{
+    color: white;
+    font-style: italic;
+    font-size: 60px;
+    text-shadow: -4px 4px 0 #888888;
+}
+
+.nav-item {
+    list-style-type: none;
+    padding: 6px 12px;
+    height: 70px;
+
+}
+
+.nav-item.main{
+    width: 40%;
+}
+
+.nav-item.btn:active{
+    cursor: pointer;
+    outline: 0;
+    box-shadow: none;
+    background-image: none;
+}
+
+#query-input, #user-input{
+    font-size: 16px;
+    height: 100%;
+    border-radius: 15px;
+    shape-margin: 21px;
+    box-shadow: -5px 5px 8px #888888;
+
+}
+
+.searcher-btn.btn{
+    cursor: pointer;
+    height: 100%;
+    border-radius: 70px;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    background-color: #0583e3;
+    box-shadow: -5px 10px 8px #888888;
+
+}
+
+
+
+.searcher-btn.btn:hover{
+    cursor: pointer;
+    color: white;
+    border-radius: 70px;
+    background-color: #006aba;
+    box-shadow: -5px 10px 8px #666565;
+
+}
+
+.searcher-btn.btn:active{
+    cursor: pointer;
+    height: 95%;
+    width: 95%;
+    border-radius: 70px;
+    font-size: 16px;
+    color: white;
+    background-color: #0583e3;
+    box-shadow: -5px 10px 8px #888888;
+}
+
+.navbar-nav-gradient #navbarSupportedContent ul{
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height:auto;
+}
+
+
+li input{
+    height: auto;
+}
+
+td {
+    font-size: 16px;
+}
+
+th {
+    font-size: 17px;
+}
+
+
+
+
+.navbar-nav-gradient{
+    text-align: center;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom : 5%;
+    height: auto;
+    background: rgb(133,126,255);
+    background: linear-gradient(90deg, rgba(133,126,255,1) 0%, rgba(41,142,219,1) 0%, rgba(255,255,255,1) 93%);
+}
+
+div.tweet-list{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    word-wrap: break-word;
+}
+
+
+table th{
+    color: white !important;
+    background-color: rgba(41,142,219,1) !important;
+    text-align: center;
+    width: 199
+}
+
+tr:hover > td{
+    background-color: rgba(41,142,219,1) !important;
+    color: white !important;
+}
+tr:hover td table td {
+    background-color: rgba(41, 142, 219, 1) !important;
+}
+
+
+tr:hover td table{
+    background-color: rgba(41,142,219,1) !important;
+}
+
+tr:hover td table th{
+    background-color: rgba(41,142,219,1) !important;
+    color: white;
+
+}
+
+
+tbody th {
+    justify-content: center;
+    border: none !important;
+}
+
+tbody td {
+    border: none !important;
+}
+
+td table th{
+    color: black !important;
+    background-color: white !important;
+    text-align: left;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+}
+
+
+
+td table td{
+    text-align: left;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+}
+
+table th{
+    text-align: center;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+
+}
+
+table td{
+    text-align: center;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+
+}
+
+html, body{
+    height: 100%;
+    width:100%;
+    padding: 0;
+    margin: 0;
+}
+
+#map-tweets {
+    width: 100%;
+    height: 100%;
+}
+
+#map{
+    position:fixed !important;
+    width:40%;
+    height: 100%;
+}
+
+
+#tweet-container{
+    display: flex;
+    width: 60%;
+    float: right;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    hyphens: auto;
+    justify-content: center;
+}
+
+#tweetTable{
+    overflow-wrap: break-word !important;;
+    word-wrap: break-word !important;;
+    hyphens: auto;
+    width: 100%;
+}
+

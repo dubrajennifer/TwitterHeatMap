@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="tweets-fragment" th:if="${tweets != null}">
+    <h2 th:if="${#lists.isEmpty(tweets)}">Non se recuperou ningún chío</h2>
+    <table th:if="${not #lists.isEmpty(tweets)}" id="tweetTable" class="table">
+        <thead>
+        <tr>
+            <th>Chío</th>
+            <th>Información</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="tweet : ${tweets}">
+            <tr>
+                <td scope="row"  th:text="${tweet.content}">...</td>
+                <td>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Usuario</th>
+                            <td th:text="${tweet.user.name}">...</td>
+                        </tr>
+                        <tr>
+                            <th>Localización</th>
+                            <td th:text="${tweet.place.fullName}">...</td>
+                        </tr>
+                        <tr>
+                            <th>Data de creación</th>
+                            <td th:text="${tweet.createdAt}">...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+        </th:block>
+        </tbody>
+    </table>
+</th:block>
